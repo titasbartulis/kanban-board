@@ -1,5 +1,5 @@
 import './Column.css';
-import useStore from '../store';
+import { useStore } from '../store';
 import Task from './Task';
 import { shallow } from 'zustand/shallow';
 
@@ -8,7 +8,7 @@ export default function Column({ state }) {
   return (
     <div className='column'>
       <p>{state}</p>
-      <Task title="Todo"/>
+      {tasks.map((task)=><Task title={task.title} key={task.title} />)}
     </div>
   )
 }
